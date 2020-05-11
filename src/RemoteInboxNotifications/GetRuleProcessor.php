@@ -40,6 +40,10 @@ class GetRuleProcessor {
 				return new PluginVersionRuleProcessor();
 			case 'stored_state':
 				return new StoredStateRuleProcessor();
+			case 'product_count':
+				return new ProductCountRuleProcessor(
+					new ProductsProvider()
+				);
 		}
 
 		return new FailRuleProcessor();
