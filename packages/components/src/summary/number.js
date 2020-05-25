@@ -1,7 +1,11 @@
 /**
  * External dependencies
  */
-import { Button, Tooltip } from '@wordpress/components';
+import {
+	Button,
+	Tooltip,
+	__experimentalText as Text,
+} from '@wordpress/components';
 import { sprintf, __ } from '@wordpress/i18n';
 import classnames from 'classnames';
 import Gridicon from 'gridicons';
@@ -85,16 +89,19 @@ const SummaryNumber = ( {
 	return (
 		<li className={ liClasses }>
 			<Container { ...containerProps }>
-				<span className="woocommerce-summary__item-label">
-					{ label }
-				</span>
+				<div className="woocommerce-summary__item-label">
+					<Text variant="body.small">{ label }</Text>
+				</div>
 
-				<span className="woocommerce-summary__item-data">
-					<span className="woocommerce-summary__item-value">
-						{ ! isNil( value )
-							? value
-							: __( 'N/A', 'woocommerce-admin' ) }
-					</span>
+				<div className="woocommerce-summary__item-data">
+					<div className="woocommerce-summary__item-value">
+						<Text variant="title.small">
+							{ ! isNil( value )
+								? value
+								: __( 'N/A', 'woocommerce-admin' ) }
+						</Text>
+					</div>
+
 					<Tooltip
 						text={
 							! isNil( prevValue )
@@ -108,17 +115,17 @@ const SummaryNumber = ( {
 							role="presentation"
 							aria-label={ screenReaderLabel }
 						>
-							<span className="woocommerce-summary__item-delta-value">
+							<Text variant="caption">
 								{ ! isNil( delta )
 									? sprintf(
 											__( '%d%%', 'woocommerce-admin' ),
 											delta
 									  )
 									: __( 'N/A', 'woocommerce-admin' ) }
-							</span>
+							</Text>
 						</div>
 					</Tooltip>
-				</span>
+				</div>
 				{ onToggle ? (
 					<Gridicon
 						className="woocommerce-summary__toggle"

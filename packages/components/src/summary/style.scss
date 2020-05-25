@@ -1,8 +1,8 @@
 
 
 // Set up some local color variables to make the CSS more clear
-$outer-border: $core-grey-light-700;
-$inner-border: $core-grey-light-500;
+$outer-border: $light-gray-tertiary;
+$inner-border: $light-gray-tertiary;
 
 // A local mixin to generate the grid template and border logic
 @mixin make-cols( $i ) {
@@ -235,25 +235,20 @@ $inner-border: $core-grey-light-500;
 			justify-content: space-between;
 		}
 
-		.woocommerce-summary__item-value,
-		.woocommerce-summary__item-delta-value {
+		.woocommerce-summary__item-value {
 			@include placeholder();
 			display: inline-block;
 			height: 16px;
 		}
 
 		.woocommerce-summary__item-delta {
-			background-color: inherit;
+			@include placeholder();
+			// background-color: inherit;
 		}
 
 		.woocommerce-summary__item-value {
 			margin-top: 2.2px;
 			max-width: 60px;
-		}
-
-		.woocommerce-summary__item-delta-value {
-			margin-top: 2.2px;
-			width: 50px;
 		}
 	}
 }
@@ -316,21 +311,20 @@ $inner-border: $core-grey-light-500;
 		display: block;
 		margin-bottom: $gap;
 		@include font-size( 11 );
-		color: $core-grey-dark-300;
+		color: $theme-color; 
 	}
 
 	.woocommerce-summary__item-value {
 		margin-bottom: $gap-smallest;
 		@include font-size( 18 );
 		font-weight: 500;
-		color: $core-grey-dark-900;
+		color: $dark-gray-primary;
 	}
 
 	.woocommerce-summary__item-delta {
-		@include font-size( 18 );
-		font-weight: 300;
-		padding: 4px;
+		padding: 5px;
 		border-radius: 3px;
+		height: min-content;
 		// @todo Check this color with Jay. It will show for zero delta values
 		background-color: $core-grey-light-500;
 		color: $core-grey-dark-900;
