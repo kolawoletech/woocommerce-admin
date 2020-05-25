@@ -10,6 +10,7 @@ namespace Automattic\WooCommerce\Admin;
 
 defined( 'ABSPATH' ) || exit;
 
+use \Automattic\WooCommerce\Admin\Notes\WC_Admin_Notes_Choose_Niche;
 use \Automattic\WooCommerce\Admin\Notes\WC_Admin_Notes_Giving_Feedback_Notes;
 use \Automattic\WooCommerce\Admin\Notes\WC_Admin_Notes_Mobile_App;
 use \Automattic\WooCommerce\Admin\Notes\WC_Admin_Notes_New_Sales_Record;
@@ -72,5 +73,6 @@ class Events {
 		WC_Admin_Notes_WooCommerce_Payments::possibly_add_note();
 		WC_Admin_Notes_Marketing::possibly_add_note();
 		WC_Admin_Notes_Giving_Feedback_Notes::possibly_add_note();
+		WC_Admin_Notes_Choose_Niche::possibly_add_note();
 	}
 }
