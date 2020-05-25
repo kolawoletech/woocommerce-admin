@@ -95,9 +95,14 @@ const SummaryNumber = ( {
 							? value
 							: __( 'N/A', 'woocommerce-admin' ) }
 					</span>
-					<Tooltip text={ ! isNil( prevValue )
-						? `${ prevLabel } ${ prevValue }`
-						: __( 'N/A', 'woocommerce-admin' ) }>
+					<Tooltip
+						text={
+							! isNil( prevValue )
+								? `${ prevLabel } ${ prevValue }`
+								: __( 'N/A', 'woocommerce-admin' )
+						}
+						position="top center"
+					>
 						<div
 							className="woocommerce-summary__item-delta"
 							role="presentation"

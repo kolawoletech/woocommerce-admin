@@ -53,9 +53,8 @@ $inner-border: $core-grey-light-500;
 		}
 	}
 
-	// @todo this poses a problem for popovers in the dropdown, ie tooltips
 	// Specificity
-	&.is-dropdown .components-popover.components-popover {
+	.components-popover:not(.components-tooltip) {
 		// !important to override element-level styles
 		position: static !important;
 		top: auto !important;
@@ -87,7 +86,7 @@ $inner-border: $core-grey-light-500;
 		}
 	}
 
-	&.is-dropdown .components-popover__content & {
+	.components-popover__content & {
 		max-height: 100%;
 		margin-top: 0;
 		margin-bottom: 0;
@@ -103,7 +102,6 @@ $inner-border: $core-grey-light-500;
 	.woocommerce-summary__item-delta {
 		flex: 0 1 auto;
 		display: flex;
-		flex-wrap: none;
 	}
 
 	&,
@@ -242,7 +240,10 @@ $inner-border: $core-grey-light-500;
 			@include placeholder();
 			display: inline-block;
 			height: 16px;
-			// min-width: auto;
+		}
+
+		.woocommerce-summary__item-delta {
+			background-color: inherit;
 		}
 
 		.woocommerce-summary__item-value {
@@ -271,7 +272,7 @@ $inner-border: $core-grey-light-500;
 	&.components-button {
 		height: auto;
 		padding: $spacing;
-		align-items: flex-start;
+		align-items: normal;
 	}
 
 
@@ -328,11 +329,11 @@ $inner-border: $core-grey-light-500;
 	.woocommerce-summary__item-delta {
 		@include font-size( 18 );
 		font-weight: 300;
-		color: $white;
 		padding: 4px;
 		border-radius: 3px;
 		// @todo Check this color with Jay. It will show for zero delta values
-		background-color: $core-grey-dark-300;
+		background-color: $core-grey-light-500;
+		color: $core-grey-dark-900;
 	}
 
 	&.is-selected {
@@ -350,10 +351,12 @@ $inner-border: $core-grey-light-500;
 
 	&.is-good-trend .woocommerce-summary__item-delta {
 		background-color: $alert-green;
+		color: $white;
 	}
 
 	&.is-bad-trend .woocommerce-summary__item-delta {
 		background-color: $alert-red;
+		color: $white;
 	}
 
 	.woocommerce-summary__toggle {
