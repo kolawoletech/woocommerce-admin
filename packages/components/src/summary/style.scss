@@ -1,21 +1,20 @@
 
 
 // Set up some local color variables to make the CSS more clear
-$outer-border: $light-gray-tertiary;
-$inner-border: $light-gray-tertiary;
+$border: $light-gray-tertiary;
 
 // A local mixin to generate the grid template and border logic
 @mixin make-cols( $i ) {
 	grid-template-columns: repeat($i, 1fr);
 
 	.woocommerce-summary__item-container:nth-of-type(#{$i}n) .woocommerce-summary__item {
-		border-right-color: $outer-border;
+		border-right-color: $border;
 	}
 
 	.woocommerce-summary__item-container:nth-of-type(#{$i}n+1):nth-last-of-type(-n+#{$i}) {
 		.woocommerce-summary__item,
 		& ~ .woocommerce-summary__item-container .woocommerce-summary__item {
-			border-bottom-color: $outer-border;
+			border-bottom-color: $border;
 		}
 	}
 }
@@ -34,9 +33,9 @@ $inner-border: $light-gray-tertiary;
 	display: grid;
 	border-width: 1px 0 0 1px;
 	border-style: solid;
-	border-color: $outer-border;
+	border-color: $border;
 	background-color: $core-grey-light-300;
-	box-shadow: inset -1px -1px 0 $outer-border;
+	box-shadow: inset -1px -1px 0 $border;
 
 	@include breakpoint( '<782px' ) {
 		& {
@@ -48,7 +47,7 @@ $inner-border: $light-gray-tertiary;
 		}
 
 		.woocommerce-summary__item-container.is-placeholder {
-			border-top: 1px solid $outer-border;
+			border-top: 1px solid $border;
 		}
 	}
 
@@ -161,7 +160,7 @@ $inner-border: $light-gray-tertiary;
 		&.has-9-items,
 		&.has-10-items {
 			.woocommerce-summary__item-container:nth-of-type(5n) .woocommerce-summary__item {
-				border-right-color: $inner-border;
+				border-right-color: $border;
 			}
 		}
 	}
@@ -169,7 +168,7 @@ $inner-border: $light-gray-tertiary;
 	@include breakpoint( '<960px' ) {
 		.woocommerce-summary__item {
 			// One-col layout for all items means right border is always "outer"
-			border-right-color: $outer-border;
+			border-right-color: $border;
 		}
 	}
 
@@ -201,16 +200,16 @@ $inner-border: $light-gray-tertiary;
 
 	&:not(.is-homepage):last-of-type .woocommerce-summary__item {
 		// Make sure the last item always uses the outer-border color.
-		border-bottom-color: $outer-border !important;
+		border-bottom-color: $border !important;
 	}
 
 	&.is-dropdown-button {
 		padding: 0;
 		list-style: none;
-		border-right: 1px solid $outer-border;
+		border-right: 1px solid $border;
 
 		.components-button {
-			border-bottom: 1px solid $outer-border;
+			border-bottom: 1px solid $border;
 			text-align: left;
 			display: block;
 		}
@@ -263,8 +262,8 @@ $inner-border: $light-gray-tertiary;
 	height: 100%;
 	padding: $spacing;
 	background-color: $core-grey-light-100;
-	border-bottom: 1px solid $inner-border;
-	border-right: 1px solid $inner-border;
+	border-bottom: 1px solid $border;
+	border-right: 1px solid $border;
 	line-height: 1.4em;
 	text-decoration: none;
 
