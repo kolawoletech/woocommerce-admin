@@ -49,7 +49,7 @@ const SummaryNumber = ( {
 	let screenReaderLabel =
 		delta > 0
 			? sprintf(
-					__( 'Up %d%% frosm %s', 'woocommerce-admin' ),
+					__( 'Up %d%% from %s', 'woocommerce-admin' ),
 					delta,
 					prevLabel
 			  )
