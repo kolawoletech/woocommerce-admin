@@ -42,7 +42,12 @@ class GetRuleProcessor {
 				return new StoredStateRuleProcessor();
 			case 'product_count':
 				return new ProductCountRuleProcessor(
-					new \WC_Product_Query( array( 'limit' => -1 ) )
+					new \WC_Product_Query(
+						array(
+							'limit'    => 1,
+							'paginate' => 1,
+						)
+					)
 				);
 		}
 
